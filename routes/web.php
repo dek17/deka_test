@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\UserController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 // Route::get('/users', [UserController::class, 'index']);
-Route::get('/users', [UserController::class, 'index'])->name('users');
+Route::get('/', [UserController::class, 'index'])->name('users');
 Route::get('/api/users', function () {
     $response = Http::get('https://jsonplaceholder.typicode.com/users');
     return response()->json($response->json());
